@@ -37,7 +37,7 @@
 		</div>	 
 		</button>
 		<div id="div${patient.pnum}" class="collapse" style="text-align: left; margin-left: 3%;">
-			${patient.proute }dasdasd
+			${patient.proute }
 		</div>
 	</c:forEach>
 	  <a style="color: #ff5050;">환자 수의 폭증으로 더 이상 환자 개인의 이동경로를 반영하지 못하게 되었습니다. 죄송합니다. </a>

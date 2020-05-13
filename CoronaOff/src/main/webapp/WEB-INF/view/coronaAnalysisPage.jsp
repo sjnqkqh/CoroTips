@@ -8,6 +8,10 @@
 <%@ include file="./header.jsp"%>
 
 <style type="text/css">
+body {
+	background-color: #e6eeff;
+}
+
 #statusDiv {
 	width: 100%;
 	margin-top: 20%;
@@ -28,43 +32,44 @@
 	margin-left: f1.5%;
 	text-align: center;
 }
+
+#patientCardDiv {
+	background-color: #ffffff;
+	padding: 3%;
+	width: 95%;
+	margin-left: 2.5%;
+	padding: 3%;
+}
 </style>
 </head>
 <body style="height: 75%;">
 	<div id="statusDiv">
-		<h5>⊙코로나 바이러스-19 국내 환자 현황</h5>
-		<div>
-			<div class="status" style="background-color: #e6005c; color: white;">
+
+		<div id="patientCardDiv" class="card bg-light text-dark">
+			<div class="status">
 				현재 확진자
 				<h3>${patientNumber.totalPatient }명</h3>
 			</div>
-			<div class="status" style="background-color: #ff3300; color: white;">
+			<div class="status">
 				총 퇴원환자
 				<h3>${patientNumber.curedPatient }명</h3>
 			</div>
-			<div class="status" style="background-color: #000000; color: white;">
+			<div class="status">
 				총 사망자
 				<h3>${patientNumber.deadPatient }명</h3>
 			</div>
-			<a style="margin-left: 1%; font-size: small;">최종 업데이트 시간 : ${patientNumber.updateTime } </a>
+			<div class="status">
+				완치 (격리 해제) 비율
+				<h3>${curedPercent}%</h3>
+			</div>
+			<a style="margin-left: 1%; font-size: small;">최종 업데이트 시간 :
+				${patientNumber.updateTime } </a>
 		</div>
 	</div>
 	<br>
-	<div class="container">
-		<button type="button" class="btn btn-outline-dark" data-toggle="collapse"
-			data-target="#sellerList">⊙추천 마스크 구매처</button>
 
-		<div id="sellerList" class="collapse" style="margin-top: 3%">
-			<c:forEach items="${maskSellerList}" var="maskSeller">
-				<button class="btn btn-outline-secondary" onclick="location.href='${maskSeller.sellerHomePage}'" style="margin-top: 2%;">${maskSeller.sellerName}</button>
-			</c:forEach>
-			<br>
-			
-		</div>
-	</div>
 
-	<div style="margin-top: 10%;">
-		<h5>⊙코로나 바이러스-19 지역별 환자 현황</h5>
+	<div id="patientCardDiv" class="card bg-light text-dark">
 		<table class="table">
 			<thead>
 				<tr>
